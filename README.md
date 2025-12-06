@@ -1,16 +1,148 @@
-# React + Vite
+# 🏙️ Citizen Appeals --- SPA для визуализации обращений граждан
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-приложение для отображения обращений граждан с таблицей, фильтрами,
+поиском, картой и детальной карточкой.\
+Проект выполнен на **React**, **JavaScript**, **shadcn/ui** и
+**React-Leaflet**.
 
-Currently, two official plugins are available:
+------------------------------------------------------------------------
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Функционал
 
-## React Compiler
+### ✓ 1. Отображение обращений
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+-   Загрузка данных из `data.json`
+-   Таблица с колонками:
+    -   ID
+    -   Категория
+    -   Адрес
+    -   Статус
+    -   Дата регистрации
+-   Пагинация (10 записей на страницу)
 
-## Expanding the ESLint configuration
+### ✓ 2. Фильтрация и поиск
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-   Фильтр по статусу:
+    -   В работе
+    -   Решено
+    -   Отклонено
+-   Поиск по:
+    -   категории\
+    -   адресу
+
+### ✓ 3. Визуализация на карте
+
+-   Используется **React-Leaflet**
+-   Маркеры обращений по координатам
+-   При клике по маркеру --- всплывающая подсказка
+
+### ✓ 4. Детальная карточка обращения
+
+Открывается по клику на строку таблицы или по маркеру карты:
+
+Показывает: - ID\
+- Категорию\
+- Адрес\
+- Описание\
+- Статус\
+- Фото (если есть)\
+- Координаты
+
+Оформлено через **Dialog** от shadcn/ui.
+
+### ✓ 5. UI / UX
+
+-   Компонентный интерфейс
+-   Адаптивная вёрстка (desktop + tablet)
+-   Используется shadcn/ui
+-   Карта автоматически пересчитывается при открытии модального окна
+
+------------------------------------------------------------------------
+
+## 🧱 Технологический стек
+
+-   **React (Vite)**\
+-   **JavaScript (ES6)**\
+-   **shadcn/ui**\
+-   **React-Leaflet + Leaflet**\
+-   **HTML5 / CSS3**
+
+------------------------------------------------------------------------
+
+## 📁 Структура проекта
+
+    src/
+     ├─ app/
+     ├─ components/
+     │   ├─ TableView/
+     │   ├─ MapView/
+     │   ├─ DetailModal/
+     │   └─ FilterSearch/
+     ├─ pages/
+     ├─ assets/
+     ├─ data/
+     │   └─ data.json
+     └─ main.jsx
+
+------------------------------------------------------------------------
+
+## ▶ Инструкция по запуску
+
+### 1. Установить зависимости
+
+    npm install
+
+### 2. Запустить проект
+
+    npm run dev
+
+### 3. Открыть в браузере
+
+    http://localhost:5173
+
+------------------------------------------------------------------------
+
+## 📄 Файл данных `data.json`
+
+    [
+      {
+        "id": 101,
+        "category": "Вывоз мусора",
+        "address": "ул. Абая, 45",
+        "status": "В работе",
+        "created_at": "2025-11-01",
+        "description": "Не вывезен мусор с контейнерной площадки",
+        "latitude": 53.2205,
+        "longitude": 63.6283
+      }
+    ]
+
+------------------------------------------------------------------------
+
+## 📝 Самооценка
+
+  №    Функция                       Выполнено
+  ---- ----------------------------- -----------
+  1    Загрузка данных               ✔
+  2    Таблица данных                ✔
+  3    Пагинация                     ✔
+  4    Фильтрация по статусу         ✔
+  5    Поиск по категории / адресу   ✔
+  6    Карта Leaflet                 ✔
+  7    Маркеры + клики               ✔
+  8    Детальная карточка            ✔
+  9    Адаптив                       ✔
+  10   UI через shadcn               ✔
+
+------------------------------------------------------------------------
+
+## 🧪 MBTI тест
+
+Скриншот результата приложен в корне проекта (`/mbti.png`).
+
+------------------------------------------------------------------------
+
+## 📌 Автор
+
+**Dias Sapargaliev**\
+Frontend Developer
